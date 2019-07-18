@@ -1,0 +1,33 @@
+{
+  "name": "react_example",
+  "version": "1.0.0",
+  "description": "First react app",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "webpack",
+    "dev": "webpack-dev-server --content-base build/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinchoik/react_example.git"
+  },
+  "author": "Kevin Choi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevinchoik/react_example/issues"
+  },
+  "homepage": "https://github.com/kevinchoik/react_example#readme",
+  "dependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "webpack": "^4.36.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
