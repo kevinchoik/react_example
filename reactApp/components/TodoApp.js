@@ -5,17 +5,6 @@ import axios from 'axios';
 
 const dbUrl = 'http://localhost:3000/db';
 
-const dummyData = [{
-	task: 'A',
-	completed: false
-}, {
-	task: 'BBB',
-	completed: false
-}, {
-	task: 'CCCC lmao',
-	completed: true
-}];
-
 class TodoApp extends React.Component {
 	constructor(props) {
 		super(props);
@@ -25,31 +14,55 @@ class TodoApp extends React.Component {
 	}
 
 	componentDidMount() {
-		this.setState({ todos: dummyData });
+		axios.get(dbUrl + '/all')
+		.then(response => {
+			this.setState({ todos: response.data });
+		})
+		.catch(err => console.log(err));
 	}
 
 	addTodo(task) {
-		axios.post((dbUrl + '/add'), { task })
+		axios.post(dbUrl + '/add', { task })
 		.then(response => {
 			this.setState({ todos: this.state.todos.concat(response.data) });
 		})
 		.catch(err => console.log(err));
 	}
 
-	removeTodo(index) {
-		dummyData.splice(index, 1);
-		this.setState({ todos: dummyData });
+	removeTodo(id) {
+		axios.post(dbUrl + '/remove', { id })
+		.then(response => {
+			this.setState({
+				todos: this.state.todos.filter(item => {
+					return !(item._id === id);
+				})
+			});
+		})
+		.catch(err => console.log(err));
 	}
 
-	strike(index) {
-		dummyData[index].completed = !dummyData[index].completed;
-		this.setState({ todos: dummyData });
+	strike(id) {
+		axios.post(dbUrl + '/toggle', { id })
+		.then(response => {
+			this.setState({
+				todos: this.state.todos.map(item => {
+					if (item._id === id) {
+						let itemCopy = {...item};
+						itemCopy.completed = response.data.completed;
+						return itemCopy;
+					} else {
+						return item;
+					}
+				})
+			});
+		})
+		.catch(err => console.log(err));
 	}
 
 	render() {
-		return (<div>
+		return (<div className='todo-app-wrapper'>
 			<InputLine submit={task => this.addTodo(task)}/>
-			<TodoList todos={this.state.todos} xClick={index => this.removeTodo(index)} todoClick={index => this.strike(index)}/>
+			<TodoList todos={this.state.todos} xClick={id => this.removeTodo(id)} todoClick={id => this.strike(id)}/>
 		</div>);
 	}
 }

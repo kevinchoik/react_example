@@ -11,10 +11,10 @@ class Todo extends React.Component {
 	}
 
 	render() {
-		return (<li>
+		return (<li className='todo-wrapper'>
 			<button className='btn btn-danger del-btn' onClick={event => this.clickHandler(event)}>&times;</button>
 			<div className='todo-text' onClick={() => this.props.todoClick()}>
-				{this.props.task.completed ? <strike>{this.props.task.task}</strike> : this.props.task.task}
+				{this.props.task.completed ? <strike className='strike-text'>{this.props.task.task}</strike> : this.props.task.task}
 			</div>
 		</li>);
 	}

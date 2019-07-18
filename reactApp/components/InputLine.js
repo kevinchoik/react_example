@@ -21,7 +21,7 @@ class InputLine extends React.Component {
 	}
 
 	render() {
-		return (<form>
+		return (<form className='todo-form-wrapper'>
 			<input className='form-control inline todo-input' type='text' placeholder='To do...' onChange={event => this.typeHandler(event)} value={this.state.typedText}/>
 			<button className='btn btn-primary inline' onClick={event => this.submitHandler(event)}>Add To Do</button>
 		</form>);

@@ -2,13 +2,24 @@ body {
 	overflow: auto;
 }
 
+ul {
+	list-style: none;
+	padding-left: 0px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
 #root {
 	margin: 20px;
+	display: flex;
+	justify-content: center;
 }
 
 .del-btn {
 	line-height: 1;
 	padding: 2px 5px;
+	float: right;
 }
 
 .inline {
@@ -21,6 +32,41 @@ body {
 }
 
 .todo-text {
-	display: inline;
+	display: inline-block;
+	max-width: 250px;
 	cursor: pointer;
+	font-size: 14pt;
+	float: left;
+	word-wrap: break-word;
+}
+
+.strike-text {
+	color: #aaa;
+}
+
+.todo-app-wrapper {
+	width: 400px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.todo-list-wrapper {
+	width: 300px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.todo-form-wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.todo-wrapper {
+	width: 100%;
+	display: block;
+	margin-bottom: 5px;
 }
