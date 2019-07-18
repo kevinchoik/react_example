@@ -10,8 +10,10 @@ class InputLine extends React.Component {
 
 	submitHandler(event) {
 		event.preventDefault();
-		this.props.submit(this.state.typedText);
-		this.setState({ typedText: '' });
+		if (this.state.typedText) {
+			this.props.submit(this.state.typedText);
+			this.setState({ typedText: '' });
+		}	
 	}
 
 	typeHandler(event) {

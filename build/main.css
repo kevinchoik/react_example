@@ -19,3 +19,8 @@ body {
 	width: 200px;
 	margin-right: 10px;
 }
+
+.todo-text {
+	display: inline;
+	cursor: pointer;
+}
