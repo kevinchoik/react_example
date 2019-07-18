@@ -31,7 +31,7 @@ class Todo extends React.Component {
 
 	render() {
 		return (<li>
-			<button>&times;</button>
+			<button className='btn btn-danger del-btn'>&times;</button>
 			{this.props.task.completed ? <strike>{this.props.task.taskText}</strike> : this.props.task.taskText}
 		</li>);
 	}
@@ -44,8 +44,8 @@ class InputLine extends React.Component {
 
 	render() {
 		return (<form>
-			<input type='text' placeholder='To do...'/>
-			<button>Add To Do</button>
+			<input className='form-control inline todo-input' type='text' placeholder='To do...'/>
+			<button className='btn btn-primary inline'>Add To Do</button>
 		</form>);
 	}
 }

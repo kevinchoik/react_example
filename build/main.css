@@ -1,0 +1,21 @@
+body {
+	overflow: auto;
+}
+
+#root {
+	margin: 20px;
+}
+
+.del-btn {
+	line-height: 1;
+	padding: 2px 5px;
+}
+
+.inline {
+	display: inline-block;
+}
+
+.todo-input {
+	width: 200px;
+	margin-right: 10px;
+}
